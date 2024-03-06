@@ -1,5 +1,8 @@
 {
-  "learn-http": {
-
+  "learnhttp": {
+    "title": "Learn HTTP",
+    "description": "A simple tutorial for learning HTTP",
+    "author": "MDN",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn/Server-side/HTTP"
   }
 }
