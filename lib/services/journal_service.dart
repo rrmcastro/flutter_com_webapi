@@ -16,7 +16,7 @@ class JournalService {
   }
 
   register(String content) {
-    client.post(
+    client.put(
       Uri.parse(getUrl()),
       body: json.encode({"content": content}),
       headers: {"Content-Type": "application/json; charset=UTF-8"},

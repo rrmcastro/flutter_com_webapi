@@ -7,7 +7,7 @@ void main() {
   runApp(const MyApp());
 
   JournalService service = JournalService();
-  service.register("Olá mundo!");
+  service.register("Hello world!");
   //service.get();
 }
 
