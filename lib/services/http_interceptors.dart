@@ -9,14 +9,23 @@ class LoggingInterceptor implements InterceptorContract {
   @override
   Future<RequestData> interceptRequest({required RequestData data}) async {
     logger.t(
-      "Requisição para ${data.url}\nCabeçalhos: ${data.headers}\nBody: ${data.body}",
+      "Requisição para: ${data.baseUrl}\nCabeçalhos: ${data.headers}\nBody: ${data.body}",
     );
     return data;
   }
 
   @override
   Future<ResponseData> interceptResponse({required ResponseData data}) async {
-    print(data.toString());
+    if (data.statusCode ~/ 100 == 2) {
+      logger.i(
+        "Resposta para: ${data.url}\nStatus da Resposta: ${data.statusCode}\nCabeçalhos: ${data.headers}\nBody: ${data.body}",
+      );
+    } else {
+      logger.e(
+        "Resposta para ${data.url}\nStatus da Resposta: ${data.statusCode}\\nCabeçalhos: ${data.headers}\nBody: ${data.body}",
+      );
+    }
+
     return data;
   }
 }
